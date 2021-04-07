@@ -61,8 +61,7 @@ def main(
         # printing the current iteration
         print('I=',i, '/', sound.TOTAL)
         # printing current value of entropy
-        if i>0:
-            print('Current entropy value :', sound.list_blocks[i-1])
+        print('Current entropy value :', sound.list_blocks[i])
         # printing instruments currently playing
         if verbose>0:
             sound.get_instruments_playing(i)
