@@ -1,4 +1,4 @@
-# Computation Music Creativity Final Project 
+# Computational Music Creativity Final Project 
 
 
 ## Content
