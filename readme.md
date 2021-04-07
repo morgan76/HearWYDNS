@@ -34,18 +34,18 @@
     Usage: main.py [OPTIONS] [IMAGE_PATH]
 
     Options:
-      --samples-dir-1 TEXT
-      --samples-dir-2 TEXT
-      --samples-dir-3 TEXT
-      --samples-dir-4 TEXT
-      --mask-size INTEGER
-      --nb-grn INTEGER
-      --nb-clouds INTEGER
-      --MIDDLE INTEGER
-      --STD INTEGER
-      --shuffle BOOLEAN
-      --record BOOLEAN
-      --normalize BOOLEAN
-      --verbose INTEGER
+      --samples-dir-1 TEXT          First samples directory
+      --samples-dir-2 TEXT          Second samples directory
+      --samples-dir-3 TEXT          Third samples directory
+      --samples-dir-4 TEXT          Fourth samples directory
+      --mask-size INTEGER           Size of the mask for entropy extraction
+      --nb-grn INTEGER              Number of granular synths
+      --nb-clouds INTEGER           Number of cloud synths
+      --MIDDLE INTEGER              Middle midi note played by pitched intstruments
+      --STD INTEGER                 Standard dev. midi note played by pitched intstruments
+      --shuffle BOOLEAN             Shuffle the entropy values (if not, the mask moves from top left to bottom right of the image)
+      --record BOOLEAN              Record the performance
+      --normalize BOOLEAN           Normalize extracted entropy values
+      --verbose INTEGER             Print instruments playing at each time-step
       --help
 ```
