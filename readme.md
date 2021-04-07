@@ -20,7 +20,7 @@
 
 1. Install the python requirements : 
 ```ShellSesion
-    pip install -r Assignment 1/requirements.txt
+    pip install -r requirements.txt
 ```
 
 2. Make sure the samples and images directories are available.
