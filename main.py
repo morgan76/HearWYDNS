@@ -74,7 +74,7 @@ def main(
         sound.update_cloud(i)
         # reading the granular conductor
         sound.read_grn_conductor(i)
-        # pausing after next iteration
+        # pausing before next iteration
         time.sleep(sound.update_time(i))
 
     # Performance end
