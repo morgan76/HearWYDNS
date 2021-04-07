@@ -50,7 +50,6 @@ class Sound_Module:
         self.TIME_REACT = 0.1
         print('System ready ...')
         
-        
 
     def start(self):
         """
@@ -77,7 +76,10 @@ class Sound_Module:
         :return:
         """
         # Stops the server
+        if self.record:
+            self.s.recstop()
         self.s.stop()
+        
         
 
     def init_particule(self):
@@ -228,7 +230,6 @@ class Sound_Module:
         d_2mid = Delay(a_2mid.mix(random.choice([0,1,2])), delay=[10,10], feedback=0.1)
         chor_2mid = Chorus(d_2mid, depth=[1,1], feedback=0.1, bal=0.1)
         c_1_2mid = Freeverb(a_2mid+d_2mid, size=[0.4, 0.4], damp=0.1, bal=0.3)
-        #d = Disto(chor, drive=.5, slope=.8, mul=1)
         c_2mid = Freeverb(c_1_2mid, size=[0.9, 0.9], damp=0.2, bal=0.3)
         comp = Compress(c_2mid, thresh=-20, ratio=4, risetime=0.005, falltime=0.10, knee=0.5, mul=0.01)
         return {'out':comp, 'instrument':a_2mid}
@@ -268,7 +269,7 @@ class Sound_Module:
         
         # Creates the required number of clouds
         for i in range(self.list_instruments[1]):
-            if random.random()>0.4:
+            if random.random()>0.2:
                 self.instruments['cloud_{}'.format(i)] = self.init_cloud()
             else:
                 self.instruments['cloud_second_{}'.format(i)] = self.init_second_cloud()
@@ -745,12 +746,13 @@ class Sound_Module:
         # Defines the samples directories available
         choices = [self.samples_dir_melody, self.samples_dir_voices, self.samples_dir_beat, self.samples_dir_aggressive]
         # For each time-step
+        size = len(self.thresholds)
         for entropy in self.list_blocks:
             # Finds the threshold interval for the current time-step
-            for i in range(len(self.thresholds)-1, 0, -1):
+            for i in range(len(self.thresholds)-1, -1, -1):
                 if entropy>self.thresholds[i]:
                     # Defines the probabilities to choose each samples directory
-                    probabilities = [1-entropy, 1-entropy, entropy, entropy]
+                    probabilities = [(size-i)/size, (size-i)/size, i/size, i/size]
                     # Normalizes the probability distribution
                     probabilities /= np.sum(probabilities)
                     # Random weighted choice from the list
@@ -764,6 +766,7 @@ class Sound_Module:
                         self.grn_conductor[grn]['density'].append(150-(10+entropy)*entropy)
                         # Reverb modification
                         self.grn_conductor[grn]['reverb_wet'].append(1-entropy)
+                    break
         return
                     
                     
