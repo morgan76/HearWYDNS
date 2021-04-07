@@ -1,7 +1,7 @@
 # Computational Music Creativity Final Project 
 
 ## Introduction
-"Hear What You Do Not See" is a project carried out within the scope of the Computational Music Creativity class at Pompeu Fabra University in 2021. Its main objective is to use, in a real context, various tools that have been addressed throughout the course. The theoretical inspiration of this project lies at the intersection of cognitive related notions, and a reflection on the idea of eventalism. The system extracts entropy measures from an image provided by the user. Based on these measures, a sound module is built. It is composed of several synthesizers (including granulars), of which the parameters and melodic behaviour are dynamically responding to the information extracted from the image.
+"Hear What You Do Not See" is a project carried out within the scope of the Computational Music Creativity class at Pompeu Fabra University in 2021. The theoretical inspiration of this project lies at the intersection of cognitive related notions, and a reflection on the idea of eventalism: synesthesia, information processing and randomness. The system extracts entropy measures from an image provided by the user. Based on these measures, a sound module is built. It is composed of several synthesizers (including granulars), of which the parameters and melodic behaviour are dynamically responding to the information extracted from the image.
 
 
 ## Content
